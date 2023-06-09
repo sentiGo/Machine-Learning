@@ -10,7 +10,7 @@ app = Flask(__name__)
 #connection parameters
 
 db_host = '35.225.179.14'
-db_port = 8080
+db_port = 3306
 db_user = 'member1'
 db_password = '.*PAF3yuq^DSjrn+'
 db_name = 'project'
@@ -76,7 +76,7 @@ def predict():
     #get the most similarity from data records
     top_records_indices = np.argsort(similarity_scores)[-5:]
     #top_records = data.loc[top_records_indices]
-    top_records = [rows[i]['descccription'] for i in top_records_indices]
+    top_records = [rows[i]['description'] for i in top_records_indices]
     top_scores = [similarity_scores[i] for i in top_records_indices]
     
     recommendations = []
@@ -84,7 +84,7 @@ def predict():
         recommendation = {
             'Record': int(top_records_indices[i])+1,
             'Similarity Score': float(top_scores[i]),
-            'Data': top_records.iloc[i].to_dict()
+            'Data': top_records[i]#top_records.iloc[i].to_dict()
         }
         recommendations.append(recommendation)
     return jsonify(recommendations)
