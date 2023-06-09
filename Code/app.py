@@ -10,7 +10,7 @@ app = Flask(__name__)
 #connection parameters
 
 db_host = '35.225.179.14'
-db_port = '8080'
+db_port = 8080
 db_user = 'member1'
 db_password = '.*PAF3yuq^DSjrn+'
 db_name = 'project'
@@ -47,7 +47,7 @@ def predict():
     user_input = request.args.get('text')
     
     with conn.cursor() as cursor:
-        query = "SELECT description FROM project"
+        query = "SELECT description FROM dataset_wisata"
         cursor.execute(query)
         rows = cursor.fetchall()
     
