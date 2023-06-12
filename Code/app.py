@@ -9,11 +9,11 @@ app = Flask(__name__)
 
 #connection parameters
 
-db_host = '35.225.179.14'
-db_port = 3306
-db_user = 'member1'
-db_password = '.*PAF3yuq^DSjrn+'
-db_name = 'project'
+db_host = 'host'
+db_port = 0000
+db_user = 'database_user'
+db_password = 'something'
+db_name = 'database_name'
 
 conn = pymysql.connect(host=db_host, port=db_port, user=db_user, password=db_password, db=db_name, cursorclass=pymysql.cursors.DictCursor)
 
